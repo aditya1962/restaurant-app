@@ -1,0 +1,57 @@
+.div-center
+{
+  text-align: center;
+  margin: 10% 0%;
+}
+.login-dialog
+{
+  background-color: white;
+  margin:4% 30%;
+}
+.login-heading
+{
+  margin:4% 0% 10% 0%;
+}
+.form-components
+{
+  display:flex;
+  margin:4% 0%;
+}
+.label-div
+{
+  flex:30%;
+}
+.label-div label
+{
+  padding:4%;
+  font-weight:500;
+}
+.input-div
+{
+  flex:70%;
+}
+.forgotpassword
+{
+  padding:2%;
+}
+.register
+{
+  flex:1%;
+  text-align:right;
+}
+
+//Styles for register
+.register-toggle
+{
+  margin:4% 30%;
+}
+#logininformation
+{
+  flex:50%;
+  text-align:right;
+}
+#personalinformation
+{
+  flex:50%;
+  text-align:left;
+}

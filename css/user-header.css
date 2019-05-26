@@ -1,0 +1,59 @@
+.user-header
+{
+  display:flex;
+  padding:1%;
+  background-color:#1B4F72;
+  color:#FFFFFF;
+}
+.logo
+{
+  flex:7%;
+  text-align:center;
+}
+.user-welcome
+{
+  flex:80%;
+  text-align:right;
+}
+.user-welcome p
+{
+  margin:1%;
+}
+.nav-buttons
+{
+  flex:5%;
+  text-align:right;
+}
+.profile
+{
+  background-color:transparent;
+  border:0;
+  position:relative;
+  display:inline-block;
+}
+.profile-options
+{
+  display: none;
+  position:absolute;
+  padding:5px;
+  color:white;
+  background-color:transparent;
+  width:140%;
+  margin:5% 0% 0% -30%;
+  z-index:1;
+}
+.profile-options-link
+{
+  display:block;
+  text-decoration:none;
+  color:black;
+}
+.profile-options-link:hover
+{
+  text-decoration: none;
+  color:black;
+}
+.profile:hover .profile-options
+{
+  display:block;
+}

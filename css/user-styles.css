@@ -1,0 +1,33 @@
+.user-body
+{
+  display:flex;
+}
+.navigation
+{
+  flex:20%;
+  margin:5% 3% 0% 3%;
+  color:#FFFFFF;
+  background-color:#1B4F72;
+}
+.navigation a
+{
+  padding:10%;
+  text-decoration:none;
+  color:#FFFFFF;
+}
+.navigation a:hover
+{
+  text-decoration:none;
+  color:#FFFFFF;
+  font-weight: 500;
+}
+.active
+{
+  padding:4% 0% 0% 0%;
+  background-color:#4F721B;
+}
+.document-body
+{
+  flex:80%;
+  margin:3% 0%;
+}

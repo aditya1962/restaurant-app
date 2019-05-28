@@ -1,0 +1,22 @@
+.footer
+{
+  position:absolute;
+  width:100%;
+  margin:2% 0% 0% 0%;
+  padding:2% 2% 0% 2%;
+  background-color:#1B4F72;
+  color:#FFFFFF;
+}
+.footer a
+{
+  text-decoration: none;
+  color:#FFFFFF;
+}
+.center
+{
+  text-align:center;
+}
+.copyrights
+{
+  margin:1% auto;
+}

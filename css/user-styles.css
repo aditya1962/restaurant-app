@@ -1,3 +1,10 @@
+html,body
+{
+  height:100%;
+  margin:0;
+  top:0;
+  bottom:0;
+}
 .user-body
 {
   display:flex;
@@ -8,6 +15,7 @@
   margin:5% 3% 0% 3%;
   color:#FFFFFF;
   background-color:#1B4F72;
+  height:100%;
 }
 .navigation a
 {
@@ -30,4 +38,73 @@
 {
   flex:80%;
   margin:3% 0%;
+}
+.flex-row
+{
+  display:flex;
+}
+.submit
+{
+  border:1px solid #ced4da;
+  margin:-1px 0px 0px 0px;
+}
+.item label
+{
+  font-weight: 500;
+}
+.quantity
+{
+  border-radius:0px;
+}
+.rating
+{
+  content: '★ '
+}
+.rating:hover
+{
+  color:#deb217
+}
+.feedback-submit
+{
+  margin:0% 0% 0% 63%;
+}
+.order-item
+{
+  text-align:left;
+  flex:50%;
+}
+.remove-item
+{
+  text-align:right;
+  flex:50%;
+}
+.table-orders
+{
+  width:70%;
+}
+.submit-orders
+{
+  width:70%;
+}
+.form-components
+{
+  display:flex;
+  margin:4% 0%;
+}
+.label-div
+{
+  flex:30%;
+}
+.label-div label
+{
+  padding:4%;
+  font-weight:500;
+}
+.input-div
+{
+  flex:70%;
+}
+.time-input input
+{
+  width:50%;
 }

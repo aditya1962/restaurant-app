@@ -5,3 +5,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../css/user-header.css" />
 <link rel="stylesheet" href="../css/user-styles.css" />
+<link rel="stylesheet" href="../css/user-footer.css" />

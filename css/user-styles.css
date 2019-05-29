@@ -108,3 +108,31 @@ html,body
 {
   width:50%;
 }
+.remove-saved-item
+{
+  text-align:right;
+}
+.cart-item
+{
+  width:80%;
+}
+.cart-image
+{
+  flex:25%;
+}
+.item-info
+{
+  flex:50%;
+}
+.item-info label
+{
+  font-weight:500;
+}
+.control-elements
+{
+  flex:25%;
+}
+.cart-item-right
+{
+  text-align:right;
+}

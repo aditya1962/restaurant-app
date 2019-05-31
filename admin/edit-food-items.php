@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <?php include_once("../includes/admin-scripts.php"); ?>
-    <title>Add Food Items</title>
+    <title>Edit Food Items</title>
   </head>
   <body>
     <?php include_once("../includes/noscript.php"); ?>
@@ -13,17 +13,23 @@
         <?php include_once("../includes/admin-navigation.php"); ?>
       </div>
       <!--User body right section - Item Filter and Item Display -->
-      <div class="document-body add-item">
-        <div class="flex-row">
-          <div class="add-food-items">
-            <!--Section to add food items -->
-            <?php include_once("../components/add-food-item.php");?>
+      <div class="document-body">
+        <!--Section to display filters-->
+        <?php include_once("../components/search-filters.php"); ?>
+        <!--Section to display items based on filters -->
+        <?php include_once("../components/edit-food-filtered.php"); ?>
+        <!--Section to edit an item -->
+        <div class="flex-row edit-item">
+          <div class="edit-food-items">
+            <!--Section to edit food items -->
+            <?php include_once("../components/edit-food-item.php"); ?>
           </div>
           <div class="preview">
-            <!--Sections to preview the item to be added -->
+            <!--Sections to preview the item to be updated -->
             <?php include_once("../components/preview.php"); ?>
           </div>
         </div>
+
       </div>
 
     </div>

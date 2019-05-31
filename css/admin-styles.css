@@ -39,9 +39,13 @@ html,body
   flex:80%;
   margin:3% 0%;
 }
+.add-item .flex-row, .edit-item .flex-row
+{
+  display:flex;
+  margin:4%;
+}
 .flex-row
 {
-  margin:4%;
   display:flex;
 }
 .label-div
@@ -57,7 +61,7 @@ html,body
 {
   flex:70%;
 }
-.add-food-items
+.add-food-items, .edit-food-items
 {
   flex:60%;
 }
@@ -72,4 +76,8 @@ html,body
 .preview-item
 {
   margin:4% 4% 4% 8%;
+}
+.item
+{
+  margin:0%;
 }

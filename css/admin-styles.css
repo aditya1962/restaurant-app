@@ -111,3 +111,30 @@ html,body
   text-align:center;
   margin:4% 0% 0% 0%;
 }
+.send-remark
+{
+  width:70%;
+}
+.submitremark
+{
+  text-align:center;
+  margin:4% 0% 0% 0%;
+}
+.cm-div
+{
+  text-align:center;
+}
+.cm
+{
+  width:50%;
+  margin:5% 25%;
+}
+.confirmmoderator
+{
+  text-align:center;
+  margin:4% 0% 0% 0%;
+}
+.bottom
+{
+  bottom:0;
+}

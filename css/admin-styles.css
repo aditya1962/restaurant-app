@@ -81,3 +81,33 @@ html,body
 {
   margin:0%;
 }
+.user-image
+{
+  flex:5%;
+}
+.feedback
+{
+  flex:50%;
+}
+.username
+{
+  font-weight:500;
+}
+.timestamp
+{
+  flex:25%;
+}
+.flex-row-column
+{
+  flex:50%;
+  display:flex;
+}
+.add-staff .flex-row
+{
+  margin:4% 0%;
+}
+.add-member
+{
+  text-align:center;
+  margin:4% 0% 0% 0%;
+}

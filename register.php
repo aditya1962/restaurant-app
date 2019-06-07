@@ -7,6 +7,7 @@
       header("Location:register.php?viewcard=logininformation");
     }
     ?>
+
     <title>Register</title>
   </head>
   <body>

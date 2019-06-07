@@ -66,8 +66,10 @@
       <label> Email </label>
     </div>
     <div class="input-div">
-      <input type="email" class="form-control" placeholder="Enter email" name="email"
+      <input id="email" type="email" class="form-control" placeholder="Enter email" name="email"
       required/>
+      <br />
+      <p id="emailvalidation"> </p>
     </div>
   </div>
   <div class="form-components">
@@ -75,8 +77,10 @@
       <label> Username </label>
     </div>
     <div class="input-div">
-      <input type="text" class="form-control" placeholder="Enter username" name="username"
+      <input id="username" type="text" class="form-control" placeholder="Enter username" name="username"
       required minlength=7/>
+      <br />
+      <p id="usernamevalidation"> </p>
     </div>
   </div>
   <div class="form-components">
@@ -84,8 +88,10 @@
       <label> Password </label>
     </div>
     <div class="input-div">
-      <input type="password" class="form-control" placeholder="Enter password" name="password"
+      <input id="password" type="password" class="form-control" placeholder="Enter password" name="password"
       required />
+      <br />
+      <p id="passwordvalidation"> </p>
     </div>
   </div>
   <div class="form-components">
@@ -93,11 +99,14 @@
       <label> Confirm Password </label>
     </div>
     <div class="input-div">
-      <input type="password" class="form-control" placeholder="Confirm Password" name="passwordConfirm"
+      <input id="confirmpassword" type="password" class="form-control" placeholder="Confirm Password" name="passwordConfirm"
       required/>
+      <br />
+      <p id="confirmpasswordvalidation"> </p>
     </div>
   </div>
   <div class="div-center">
     <input type="submit" class="btn btn-primary" name="next" value="Next" />
   </div>
 </form>
+<script src="js/register.js" type="text/javascript"></script>

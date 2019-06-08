@@ -23,11 +23,28 @@
     $logicErrors = logic($values,$register_logic); //check for business logic
     if(empty($blanks_valid) && $valid && !($logicErrors)) //if all validations are correct
     {
-      session_start(); //start session
-      $_SESSION["values"]= $values; //set values session attribute to be passed to next page
-      $_SESSION["valid"] = true; //set valid session attribute to be passed to next page
-      header("Location:register.php?viewcard=personalinformation"); //locate to next page using header
+      //verify that username does not exists
+      $user = verify_username($values[1]);
+      if(!$user) //if user does not exist, navigate to next page
+      {
+        session_start(); //start session
+        $_SESSION["values"]= $values; //set values session attribute to be passed to next page
+        $_SESSION["valid"] = true; //set valid session attribute to be passed to next page
+        header("Location:register.php?viewcard=personalinformation"); //locate to next page using header
+      }
+      else { //display error message
+        echo "Username not available. Try a different username";
+      }
     }
+  }
+
+  function verify_username($username)
+  {
+    include_once("logic/register_control.php");
+    $register_control = new RegisterControl();
+    $verify=$register_control->verify_username($username);
+    echo $verify;
+    return $verify;
   }
 
   function logic($arr,$register_logic)

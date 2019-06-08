@@ -56,10 +56,9 @@ class RegisterLogic
   {
     $errors = false; //variable to store if any errors exists
     //for all values check whether special characters are found
-    $valid = "&*@#"; //valid characters
     for($i=0;$i<sizeof($values);$i++)
     {
-      if(!(preg_match('/'.preg_quote($valid,'/').'/',$values[$i])))
+      if(!(preg_match('/[@#&*]/',$values[$i])))
       {
         $errors = true ;
         echo $form_fields[$i]." should contain at least one special character(&,*,@,#) <br />";

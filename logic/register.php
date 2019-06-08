@@ -106,7 +106,13 @@ class RegisterLogic
       if(empty($arr[$i]))
       {
         $errors = true;
-        echo $form_fields[$i]." cannot be empty <br />";
+        if($form_fields[$i]==="Sex"|| $form_fields[$i]==="Age")
+        {
+          echo $form_fields[$i]." is not selected <br />";
+        }
+        else {
+          echo $form_fields[$i]." cannot be empty <br />";
+        }
       }
     }
     return $errors;

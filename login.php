@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,6 +13,48 @@
       <div class="login-dialog card">
         <div class="card-body">
           <h3 class="login-heading">Login</h3>
+          <?php
+          if(isset($_POST['login']))
+          {
+            //Get values submitted from POST
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            if(empty($username))
+            {
+              echo "Username cannot be blank";
+            }
+            if(empty($password))
+            {
+              echo "Password cannot be blank";
+            }
+            if(!(empty($username))&& !(empty($password)))
+            {
+              user_login_control($username,$password);
+            }
+          }
+          function user_login_control($username,$password)
+          {
+            //determine whether username and password match
+            //include LoginControl from logic/
+            include_once("logic/login_control.php");
+            //create object of LoginControl from logic/
+            $login_ctrl = new LoginControl();
+            //call verify method to verify username and password
+            $verified = $login_ctrl->verify($username,$password);
+            if(!($verified))
+            {
+              ?>
+              <div class="login-error">
+                <?php echo "Username/Password incorrect"; ?>
+              </div>
+              <?php
+            }
+            else {
+              //find authorization and navigate to home page
+              $login_ctrl->redirect_user($username);
+            }
+          }
+          ?>
             <form method="post" action="login.php">
               <div class="form-components">
                 <div class="label-div">

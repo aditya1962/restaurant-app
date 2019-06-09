@@ -3,6 +3,7 @@
   <head>
     <?php include_once("../includes/user-scripts.php"); ?>
     <title>View Food Items</title>
+    ?>
   </head>
   <body>
     <?php include_once("../includes/noscript.php"); ?>

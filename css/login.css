@@ -39,6 +39,12 @@
   flex:1%;
   text-align:right;
 }
+.login-error
+{
+  background-color:red;
+  padding:3%;
+  color:white;
+}
 
 //Styles for register
 .register-toggle

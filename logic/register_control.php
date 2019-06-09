@@ -14,9 +14,10 @@ class RegisterControl
     $stmt = $link->prepare($query);
     $stmt->bind_param("s",$username);
     //execute query to determine whether any data is returned
-    if($link->query($query))
+    $stmt->execute();
+    while($stmt->fetch())
     {
-      $exists = true; //if returned, set exists to true
+      $exists = true;
     }
     //close db connection
     $link->close();
@@ -51,18 +52,20 @@ class RegisterControl
     $stmt_login->bind_param("ssissi",$username,$password,$activated,$role,$login_time,$login_count);
     //execute the statement
     $stmt_login->execute();
+    $link->close();
 
     //second insert data to user table
     //columns (username,email,fullname,address,sex,age)
 
+    $link_two = $dbConnect->databaseConnect();
     $query_user = "INSERT INTO user VALUES(?,?,?,?,?,?)";
     //using prepared statement bind values to query
-    $stmt_user = $link->prepare($query_user);
+    $stmt_user = $link_two->prepare($query_user);
     $stmt_user->bind_param("sssssi",$username,$email,$fullname,$address,$sex,$age);
     //exexcute the statement
     $stmt_user->execute();
     //close db connection
-    $link->close();
+    $link_two->close();
   }
 
 }

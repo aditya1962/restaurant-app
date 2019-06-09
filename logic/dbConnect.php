@@ -12,7 +12,6 @@ class DBConnect
     //check connection
     if(!(mysqli_connect_errno()))
     {
-      echo "Connection succeeded";
       return $link;
     }
     else {

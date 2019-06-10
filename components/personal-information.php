@@ -7,14 +7,14 @@
   if(isset($_POST["register"]))
   {
     //Get values from POST
-    $fullname = $_POST["fullname"];
-    $address = $_POST["address"];
+    $fullname = trim($_POST["fullname"]);
+    $address = trim($_POST["address"]);
     $sex = "";
     if(isset($_POST["sex"]))
     {
       $sex = $_POST["sex"];
     }
-    $phone = $_POST["phone"];
+    $phone = trim($_POST["phone"]);
     $age = $_POST["age"];
     $values = array($fullname,$address,$sex,$phone,$age); //insert values to an array for easy trnasfer
     ?>

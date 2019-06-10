@@ -68,3 +68,17 @@
   background-color:green;
   color:white;
 }
+
+//styles for forgot password
+.update-error
+{
+  background-color:red;
+  color:white;
+  padding:2%;
+}
+.update-password
+{
+  background-color:green;
+  color:white;
+  padding:2%;
+}

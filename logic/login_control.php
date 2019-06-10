@@ -66,7 +66,11 @@ class LoginControl
         $active = true;//user account activated
       }
       else {
-        echo "User account not activated";
+        ?>
+        <div class="login-error">
+          <?php echo "User account not activated"; ?>
+        </div>
+        <?php
       }
     }
     $link->close(); //close the db connection

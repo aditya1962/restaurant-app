@@ -17,15 +17,23 @@
           if(isset($_POST['login']))
           {
             //Get values submitted from POST
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
             if(empty($username))
             {
-              echo "Username cannot be blank";
+              ?>
+              <div class="login-error">
+                <?php echo "Username cannot be blank";?>
+              </div>
+              <?php
             }
             if(empty($password))
             {
-              echo "Password cannot be blank";
+              ?>
+              <div class="login-error">
+                <?php echo "Password cannot be blank"; ?>
+              </div>
+              <?php          
             }
             if(!(empty($username))&& !(empty($password)))
             {

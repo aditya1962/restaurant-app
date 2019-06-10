@@ -2,10 +2,10 @@
   if(isset($_POST["next"]))
   {
     //Get values using POST
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['passwordConfirm'];
+    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $confirmpassword = trim($_POST['passwordConfirm']);
     $values = array($email,$username,$password,$confirmpassword); //insert values to an array for easy transfer
     ?>
     <div class="errors">

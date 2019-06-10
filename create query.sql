@@ -18,6 +18,15 @@ CREATE TABLE item_promotion
     item_id INT NOT NULL PRIMARY KEY
 );
 
+CREATE TABLE item_category
+(
+	category_id INT AUTO_INCREMENT PRIMARY KEY,
+	category VARCHAR(50) NOT NULL,
+    sub_category VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE item_category AUTO_INCREMENT = 1;
+
 
 CREATE TABLE item
 (
@@ -32,6 +41,10 @@ CREATE TABLE item
     date_added DATETIME NOT NULL,
     available BOOLEAN DEFAULT TRUE,
     number_of_orders INT DEFAULT 0,
+    category_id INT NOT NULL,
+    FOREIGN KEY item_item_category(category_id)
+		REFERENCES item_category(category_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY item_item_promotion(item_id)
 		REFERENCES item_promotion(item_id)
         ON UPDATE CASCADE ON DELETE CASCADE
@@ -43,7 +56,7 @@ ALTER TABLE item AUTO_INCREMENT=1;
 CREATE TABLE login
 (
 	username VARCHAR(20) PRIMARY KEY NOT NULL,
-	password VARCHAR(20) NOT NULL,
+	password VARCHAR(255) NOT NULL,
 	activated BOOLEAN DEFAULT TRUE,
 	role VARCHAR(20) NOT NULL,
 	login_time DATETIME NOT NULL,
@@ -134,8 +147,8 @@ CREATE TABLE promotion
     promotion_date DATETIME NOT NULL,
     venue VARCHAR(20) NOT NULL,
     remarks VARCHAR(100) NULL,
-    item__id VARCHAR(20) NOT NULL,
-    FOREIGN KEY promotion_item(item__id)
+    item_id INT NOT NULL,
+    FOREIGN KEY promotion_item(item_id)
 		REFERENCES item(item_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );

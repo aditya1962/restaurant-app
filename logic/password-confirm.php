@@ -45,7 +45,9 @@
         $query = "UPDATE login SET password=? WHERE username=?";
         //use prepared statements to bind parameters
         $stmt = $link->prepare($query);
-        $stmt->bind_param("ss",$password,$username);
+        //hash password before updating
+        $password_hashed = password_hash($password,PASSWORD_DEFAULT);
+        $stmt->bind_param("ss",$password_hashed,$username);
         //execute the query
         $stmt->execute();
         if($stmt->execute())

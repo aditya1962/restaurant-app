@@ -7,7 +7,6 @@
         </div>
         <div class="input-div">
           <select name="category" class="form-control">
-            <option value="" selected disabled hidden> By Category </option>
             <option value="food"> Food </option>
           </select>
         </div>
@@ -18,7 +17,6 @@
         </div>
         <div class="input-div">
           <select name="category" class="form-control">
-            <option value="" selected disabled hidden> By Subcategory </option>
             <option value="food"> Food </option>
           </select>
         </div>

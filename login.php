@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,6 +12,14 @@
         <div class="card-body">
           <h3 class="login-heading">Login</h3>
           <?php
+          if(isset($_GET["user"]) && $_GET["user"]==="false")
+          {
+            ?>
+            <div class="login-error">
+              <?php echo "Not logged in. Log in to continue."; ?>
+            </div>
+            <?php
+          }
           if(isset($_POST['login']))
           {
             //Get values submitted from POST
@@ -33,7 +39,7 @@
               <div class="login-error">
                 <?php echo "Password cannot be blank"; ?>
               </div>
-              <?php          
+              <?php
             }
             if(!(empty($username))&& !(empty($password)))
             {

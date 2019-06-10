@@ -6,3 +6,4 @@
 <link rel="stylesheet" href="../css/user-header.css" />
 <link rel="stylesheet" href="../css/admin-styles.css" />
 <link rel="stylesheet" href="../css/user-footer.css" />
+<?php //include_once("../session.php"); ?>

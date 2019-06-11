@@ -6,8 +6,19 @@
           <label>Item Category</label>
         </div>
         <div class="input-div">
-          <select name="category" class="form-control">
-            <option value="food"> Food </option>
+          <?php include_once("../logic/populate-item.php");
+          //create object of PopulateItem
+            $populate_item = new PopulateItem();
+            //return value array
+            $categories = $populate_item->populate_categories();
+           ?>
+          <select name="category" id="category" class="form-control"
+          onchange="request_subcategories()">
+            <?php
+              for ($i=0; $i < sizeof($categories); $i++) {
+                echo "<option value=".$categories[$i].">".$categories[$i]."</option>";
+              }
+            ?>
           </select>
         </div>
       </div>
@@ -15,10 +26,12 @@
         <div class="label-div">
           <label>Item Subcategory</label>
         </div>
+
         <div class="input-div">
-          <select name="category" class="form-control">
-            <option value="food"> Food </option>
+          <select name="sub_category" id="sub_category" class="form-control">
+
           </select>
+          <div id="suggestion"> </div>
         </div>
       </div>
       <div class="flex-row">

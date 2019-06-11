@@ -4,7 +4,7 @@
     <?php include_once("../includes/admin-scripts.php"); ?>
     <title>Add Food Items</title>
   </head>
-  <body>
+  <body onload="request_subcategories()">
     <?php include_once("../includes/noscript.php"); ?>
     <?php include_once("../includes/user-header.php"); ?>
     <div class="user-body">
@@ -29,5 +29,6 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
+    <script type="text/javascript" src="../logic/categories.js"> </script>
   </body>
 </html>

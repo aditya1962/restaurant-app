@@ -4,7 +4,7 @@
     <?php include_once("../includes/admin-scripts.php"); ?>
     <title>Edit Food Items</title>
   </head>
-  <body>
+  <body onload="request_subcategories()">
     <?php include_once("../includes/noscript.php"); ?>
     <?php include_once("../includes/user-header.php"); ?>
     <div class="user-body">
@@ -16,8 +16,6 @@
       <div class="document-body">
         <!--Section to display filters-->
         <?php include_once("../components/search-filters.php"); ?>
-        <!--Section to display items based on filters -->
-        <?php include_once("../components/edit-food-filtered.php"); ?>
         <!--Section to edit an item -->
         <div class="flex-row edit-item">
           <div class="edit-food-items">
@@ -35,5 +33,6 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
+    <script type="text/javascript" src="../logic/categories.js"> </script>
   </body>
 </html>

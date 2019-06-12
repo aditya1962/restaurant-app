@@ -9,7 +9,7 @@ function request_subcategories()
   }
 
   var data = "category=" + category;
-       xhr.open("POST", "../admin/load_category.php", true);
+       xhr.open("POST", "../logic/load_category.php", true);
        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        xhr.send(data);
      xhr.onreadystatechange = display_data;

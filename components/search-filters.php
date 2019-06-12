@@ -5,23 +5,37 @@
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="search" placeholder="Search" />
           <div class="input-group-append">
-            <button class="btn btn-default submit" name="submit"><img src="#" alt="search" /></button></span>
+            <button class="btn btn-default submit"><img src="#" alt="search" /></button></span>
           </div>
         </div>
       </div>
       <!--Filter by category -->
       <div class="col-md-3 col-lg-3">
-        <select class="form-control" name="category">
-          <option value="" selected disabled hidden> By Category </option>
-          <option value="food"> Food </option>
+        <?php include_once("../logic/populate-item.php");
+        //create object of PopulateItem
+          $populate_item = new PopulateItem();
+          //return value array
+          $categories = $populate_item->populate_categories();
+         ?>
+        <select class="form-control" id="category" onchange="request_subcategories()">
+          <?php
+            for ($i=0; $i < sizeof($categories); $i++) {
+              echo "<option value=".$categories[$i].">".$categories[$i]."</option>";
+            }
+          ?>
         </select>
       </div>
       <!-- Filter by subcategory -->
       <div class="col-md-3 col-lg-3">
-        <select class="form-control" name="subcategory">
-          <option value="" selected disabled hidden> By Subcategory </option>
-          <option value="food"> Food </option>
+        <select class="form-control" id="sub_category" >
         </select>
       </div>
   </div>
 </form>
+<?php
+  if(isset($_GET["search"]))
+  {
+    $search = $_GET["search"];
+    include_once("../logic/load_results.php");
+  }
+?>

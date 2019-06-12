@@ -45,7 +45,7 @@
           {
             //move image file to directory images/items/
             try {
-              $uploads_dir = dirname(__DIR__)."\images\items";
+              $uploads_dir = "..\images\items";
               $tmp_name = $_FILES["imagefile"]["tmp_name"];
               $file_name = basename($_FILES["imagefile"]["name"]);
               $file_path = "$uploads_dir/$file_name";

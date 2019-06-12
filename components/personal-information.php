@@ -39,8 +39,11 @@
     $blank_values = $register->is_blanks($arr,$form_fields); //check for blank values
     if(!$blank_values) //if there are no blank values
     {
-      register($arr); //proceed to register
-      header("Location:".$_SERVER["REQUEST_URI"]."&register=true");
+      $register_success = register($arr); //proceed to register
+      if($register_success)
+      {
+        header("Location:".$_SERVER["REQUEST_URI"]."&register=true");
+      }
     }
   }
 

@@ -64,8 +64,14 @@ class RegisterControl
     $stmt_user->bind_param("sssssi",$username,$email,$fullname,$address,$sex,$age);
     //exexcute the statement
     $stmt_user->execute();
+    $register_success = false;
+    if($stmt->affected_rows>0)
+    {
+      $register_success = true;
+    }
     //close db connection
     $link_two->close();
+    return $register_success;
   }
 
 }

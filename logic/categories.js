@@ -1,6 +1,5 @@
 function request_subcategories()
 {
-  console.log("Called");
   var category = document.getElementById("category").value;
   var xhr;
    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -15,11 +14,8 @@ function request_subcategories()
        xhr.send(data);
      xhr.onreadystatechange = display_data;
     function display_data() {
-      console.log(xhr);
      if (xhr.readyState == 4) {
         if (xhr.status == 200) {
-         //alert(xhr.responseText);
-         console.log("Response:"+xhr.responseText);
       document.getElementById("sub_category").innerHTML = xhr.responseText;
         } else {
           alert('There was a problem with the request.');

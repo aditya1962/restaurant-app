@@ -1,15 +1,15 @@
 <div class="preview-item">
-<label> Category </label>
+<label> Category : </label><label id="category_label"></label>
 <br />
-<label>Subcategory</label>
+<label>Subcategory : </label><label id="subcategory_label"></label>
 <br />
-<img src="#" alt="item" />
+<img id="fileimage" src="#" alt="item" />
 <br />
-<label>Name</label>
+<label>Name : </label><label id="name_label"></label>
 <br />
-<label>Price</label>
+<label>Price : </label><label id="price_label"></label>
 <br />
-<label>Discount</label>
+<label>Discount : </label><label id="discount_label"></label>
 <br />
 <label>Rating</label>
 <br />

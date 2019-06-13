@@ -8,12 +8,14 @@
             <label style="display:block;"><?php echo $name; ?></label>
             <label style="display:block;">Price: <?php echo $price; ?></label>
             <div class="flex-row">
-              <button name="edit" class="btn btn-default">
-                <img src="#" alt="edit" />
-              </button>
-              <button name="delete" class="btn btn-default">
-                <img src="#" alt="delete" />
-              </button>
+              <a href="#edit-item">
+                <button name="edit" id=<?php echo "product-".$item_id; ?> class="btn btn-default" onclick="getValues(this.id)">
+                  <img src="#" alt="edit" />
+                </button>
+                <button name=<?php echo "product-".$item_id; ?> class="btn btn-default">
+                  <img src="#" alt="delete" />
+                </button>
+              </a>
             </div>
             </div>
         <div class="col-md-3 col-lg-3">

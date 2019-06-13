@@ -17,7 +17,7 @@
           //return value array
           $categories = $populate_item->populate_categories();
          ?>
-        <select class="form-control" id="category" onchange="request_subcategories()">
+        <select class="form-control" id="category" onchange="request_subcategories(this.id)">
           <?php
             for ($i=0; $i < sizeof($categories); $i++) {
               echo "<option value=".$categories[$i].">".$categories[$i]."</option>";

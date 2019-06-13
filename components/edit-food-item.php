@@ -1,15 +1,24 @@
 <form method="post" action=<?php basename($_SERVER['SCRIPT_FILENAME']) ?>>
   <div class="card" style="margin:4% 0%;">
     <div class="card-body">
-      <h3>Edit Item</h3>
+      <h3 id="edit-item">Edit Item</h3>
       <div class="flex-row">
         <div class="label-div">
           <label>Item Category</label>
         </div>
         <div class="input-div">
-          <select name="category" class="form-control">
-            <option value="" selected disabled hidden> By Category </option>
-            <option value="food"> Food </option>
+          <?php
+            include_once("../logic/populate-item.php");
+            $populate = new PopulateItem();
+          ?>
+          <select name="category" id="edit-category" class="form-control" onchange="request_subcategories();">
+            <?php
+              $categories = $populate->populate_categories();
+              for ($i=0; $i < sizeof($categories); $i++) 
+              { 
+                echo "<option value=".$categories[$i].">".$categories[$i]."</option>";
+              }
+            ?>
           </select>
         </div>
       </div>
@@ -18,9 +27,7 @@
           <label>Item Subcategory</label>
         </div>
         <div class="input-div">
-          <select name="category" class="form-control">
-            <option value="" selected disabled hidden> By Subcategory </option>
-            <option value="food"> Food </option>
+          <select name="subcategory" id="edit-subcategory" class="form-control">
           </select>
         </div>
       </div>
@@ -29,7 +36,7 @@
           <label>Item Name</label>
         </div>
         <div class="input-div">
-          <input type="text" name="itemname" placeholder="Enter Item Name"
+          <input type="text" id="name" name="itemname" placeholder="Enter Item Name"
           class="form-control"/>
         </div>
       </div>
@@ -38,7 +45,7 @@
           <label>Item Price</label>
         </div>
         <div class="input-div">
-          <input type="text" name="itemprice" placeholder="Enter Item Price"
+          <input type="text" id="price" name="itemprice" placeholder="Enter Item Price"
           class="form-control" />
         </div>
       </div>
@@ -55,7 +62,7 @@
           <label>Item Discount</label>
         </div>
         <div class="input-div">
-          <input type="text" name="itemprice" placeholder="Enter Item Price"
+          <input type="text" id="discount" name="itemdiscount" placeholder="Enter Item Discount"
           class="form-control" />
         </div>
       </div>

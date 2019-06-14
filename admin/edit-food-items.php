@@ -4,7 +4,7 @@
     <?php include_once("../includes/admin-scripts.php"); ?>
     <title>Edit Food Items</title>
   </head>
-  <body onload="request_subcategories()">
+  <body>
     <?php include_once("../includes/noscript.php"); ?>
     <?php include_once("../includes/user-header.php"); ?>
     <div class="user-body">
@@ -33,7 +33,7 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
-    <script type="text/javascript" src="../logic/categories.js"> </script>
+    <script type="text/javascript" src="../js/edit_item_preview.js"></script>
     <script type="text/javascript" src="../js/edit-food-item.js"> </script>
   </body>
 </html>

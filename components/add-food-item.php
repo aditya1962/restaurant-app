@@ -9,8 +9,9 @@
           $sub_category = $_POST["sub_category"];
           $name = trim($_POST["itemname"]);
           $price =floatval(trim($_POST["itemprice"]));
-          $file = $_FILES["imagefile"];
+          $file = $_FILES["imagefile"]["name"];
           $discount = intval(trim($_POST["itemdiscount"]));
+          var_dump($file);
 
           //check whether input values are blank
           $values = array($name,$price,$file,$discount);
@@ -45,13 +46,12 @@
           {
             //move image file to directory images/items/
             try {
-              $uploads_dir = "..\images\items";
+              $uploads_dir = "../images/items";
               $tmp_name = $_FILES["imagefile"]["tmp_name"];
               $file_name = basename($_FILES["imagefile"]["name"]);
               $file_path = "$uploads_dir/$file_name";
               //check whether file is of valid type
               $file_types = array("jpg","png","gif","bmp");
-              var_dump($_FILES["imagefile"]["error"]);
               if(!(in_array(pathinfo($file_path)['extension'],$file_types)))
               {
                 ?>
@@ -72,13 +72,14 @@
               else
               {
                 $file_move = move_uploaded_file($tmp_name,$file_path);
-                //upload values to database
-                $value_array = array($category,$sub_category,$values[0],$values[1],$file_path,$values[3]);
-                //include AddItemControl object
-                include_once("../logic/add_item_control.php");
-                $add_item = new AddItemControl();
+               
                 if($file_move)
                 {
+                  //upload values to database
+                  $value_array = array($category,$sub_category,$values[0],$values[1],$file_path,$values[3]);
+                  //include AddItemControl object
+                  include_once("../logic/add_item_control.php");
+                  $add_item = new AddItemControl();
                   $add_item->add_item($value_array);
                 }
                 else

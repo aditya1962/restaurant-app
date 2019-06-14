@@ -1,6 +1,9 @@
+window.onload = function()
+{
+  request_subcategories();
+}
 function request_subcategories()
 {
-  console.log("called");
   var category = document.getElementById("category").value;
   var xhr;
    if (window.XMLHttpRequest) { // Mozilla, Safari, ...

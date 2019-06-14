@@ -29,7 +29,7 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
-    <script type="text/javascript" src="../logic/add_item_preview.js"></script>
-    <script type="text/javascript" src="../logic/categories.js"> </script>
+    <script type="text/javascript" src="../js/add_item_preview.js"></script>
+    <script type="text/javascript" src="../js/categories.js"> </script>
   </body>
 </html>

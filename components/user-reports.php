@@ -8,11 +8,29 @@
     <th> Orders </th>
     <th> Feedbacks </th>
   </tr>
-  <tr>
-    <td>Value 1</td>
-    <td>Value 1</td>
-    <td>Value 1</td>
-    <td>Value 1</td>
-    <td>Value 1</td>
-  </tr>
+  <?php
+    include_once("../logic/dbConnect.php");
+    //create database connection
+    $dbConnect = new DBConnect();
+    $link = $dbConnect->databaseConnect();
+    //create query
+    $query = "SELECT username,number_of_logins,last_login,orders,feedbacks FROM user_report";
+    //create parameterized query
+    $stmt = $link->prepare($query);
+    //execute query
+    $stmt->execute();
+    //bind result returned
+    $stmt->bind_result($username,$number_of_logins,$last_login,$orders,$feedbacks);
+    while($stmt->fetch())
+    {
+      echo "<tr>";
+      echo "<td>".$username."</td>";
+      echo "<td>".$number_of_logins."</td>";
+      echo "<td>".$last_login."</td>";
+      echo "<td>".$orders."</td>";
+      echo "<td>".$feedbacks."</td>";
+      echo "</tr>";
+    }
+    $link->close();
+  ?>
 </table>

@@ -76,6 +76,7 @@
        {
          include("../components/edit-food-filtered.php");
        }
+       echo "<hr>";
        //close db connection
        $link->close();
        

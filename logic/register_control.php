@@ -1,4 +1,5 @@
 <?php
+include_once("dbConnect.php"); 
 class RegisterControl
 {
   function verify_username($username)
@@ -23,6 +24,25 @@ class RegisterControl
     $link->close();
     return $exists;
   }
+  function add_user_report_entry($username)
+  {
+    //create database connection
+    $dbConnect = new DBConnect();
+    $link = $dbConnect->databaseConnect();
+    //create query
+    $query = "INSERT INTO user_report(username,number_of_logins,last_login,orders,feedbacks) 
+    VALUES(?,?,?,?,?)";
+    //bind parameters using prepared statement
+    $stmt = $link->prepare();
+    $number_of_logins = 0;
+    $last_login = date("Y-m-d H:i:s",mktime(0,0,0,0,0,0));
+    $orders = 0;
+    $feedbacks = 0;
+    $stmt->bind_param("sisii",$username,$number_of_logins,$last_login,$orders,$feedbacks);
+    //execute query
+    $stmt->execute();
+    $link->close();
+  }
   function register($values)
   {
     $email = $values[0];
@@ -34,7 +54,9 @@ class RegisterControl
     $phone = $values[7];
     $age = $values[8];
 
-    include_once("dbConnect.php"); //create db connection
+    //add user entry to user_report db table
+    $this->add_user_report_entry($username);
+
     //first insert data to login table
     //columns (username,password,activated, role,login_time,login_count)
     //value of activated set to true (1), login_count set to 0 and login_time set to null

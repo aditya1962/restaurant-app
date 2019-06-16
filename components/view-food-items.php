@@ -85,7 +85,7 @@
       <div class="card">
         <div class="card-body">
           <div class="flex-row">
-            <img src=<?php echo $image_path; ?> alt="item" />
+            <img src=<?php echo $image_path; ?> alt="item" style="width:150px; height:110px;"/>
             <label><?php echo $name; ?></label>
           </div>
           <br />

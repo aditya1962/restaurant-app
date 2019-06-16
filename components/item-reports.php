@@ -22,7 +22,7 @@
     while($stmt->fetch())
     {
       echo "<tr>";
-      echo "<td>".$item_id."</tr>";
+      echo "<td>".$item_id."</td>";
       echo "<td>".$number_of_orders."</td>";
       echo "<td>".$rating."</td>";
       echo "</tr>";

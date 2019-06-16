@@ -11,7 +11,6 @@
           $price =floatval(trim($_POST["itemprice"]));
           $file = $_FILES["imagefile"]["name"];
           $discount = intval(trim($_POST["itemdiscount"]));
-          var_dump($file);
 
           //check whether input values are blank
           $values = array($name,$price,$file,$discount);

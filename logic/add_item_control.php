@@ -54,7 +54,7 @@ class AddItemControl
     $link->close();
     return $id;
   }
-  function add_promotion($sub_category)
+  function add_promotion()
   {
     //create connection object
     $dbConnect = new DBConnect();
@@ -64,7 +64,7 @@ class AddItemControl
     //bind parameters using prepared statement
     $stmt = $link->prepare($query);
     $item_promotion_id="0";
-    $item_id=$this->get_item_id($sub_category);
+    $item_id=$this->get_item_id();
     $stmt->bind_param("si",$item_promotion_id,$item_id);
     //execute query
     $stmt->execute();
@@ -95,35 +95,42 @@ class AddItemControl
     $dbConnect = new DBConnect();
     $link = $dbConnect->databaseConnect();
     //create query
-    $query = "SELECT item_id FROM item ORDER BY item_id DESC";
+    $query = "SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1";
     //bind parameters in prepared statement
     $stmt = $link->prepare($query);
     //execute query
     $stmt->execute();
     $stmt->bind_result($item_id);
     //get returned results and check whether results available
-    $id = 0;
+    $id = 1;
     while($stmt->fetch())
     {
       $id = $item_id+1;
-      break;
     }
     $link->close();
     return $id;
   }
+  function add_item_report($item_id)
+  {
+    //create database connection
+    $dbConnect = new DBConnect();
+    $link = $dbConnect->databaseConnect();
+    //create query
+    $query = "INSERT INTO item_report (item_id,number_of_orders,rating) VALUES(?,?,?)";
+    //bind parameters from prepared statement
+    $stmt = $link->prepare($query);
+    $number_of_orders = 0;
+    $rating = 0;
+    $stmt->bind_param("iii",$item_id,$number_of_orders,$rating);
+    //execute query
+    $stmt->execute();
+    $link->close();
+  }
   function add_item($values)
   {
       //add promotion to item_promotion table because item_promotion contains foreign key of item table
-      $this->add_promotion($values[1]);
-      $category_id = $this->get_category_id($values[1]);  //get category id
-      $date_added = date('Y-m-d H:i:s'); //get current date and time as added date
-      //create db connection
-      $db = new DBConnect();
-      $link = $db->databaseConnect();
-      //create query
-      $query = "INSERT INTO item VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-      //bind parameters using prepared statement
-      $stmt = $link->prepare($query);
+      $this->add_promotion();
+
       $item_id = 0;
       //find whether items exist in item table
       $exists = $this->verify_item();
@@ -135,6 +142,19 @@ class AddItemControl
       {
         $item_id = 1;
       }
+       //add item to item_report table
+      $this->add_item_report($item_id);
+
+      $category_id = $this->get_category_id($values[1]);  //get category id
+      $date_added = date('Y-m-d H:i:s'); //get current date and time as added date
+      //create db connection
+      $db = new DBConnect();
+      $link = $db->databaseConnect();
+      //create query
+      $query = "INSERT INTO item VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+      //bind parameters using prepared statement
+      $stmt = $link->prepare($query);
+     
       $rating = 0;
       $available = 1;
       $number_of_orders = 0;

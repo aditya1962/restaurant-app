@@ -3,7 +3,7 @@
 <br />
 <label>Subcategory : </label><label id="subcategory_label"></label>
 <br />
-<img id="fileimage" src="#" alt="item" />
+<img id="fileimage" src="#" alt="item" style="width:150px;height:110px;"/>
 <br />
 <label>Name : </label><label id="name_label"></label>
 <br />

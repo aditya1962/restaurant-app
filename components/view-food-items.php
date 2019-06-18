@@ -10,6 +10,7 @@
     {
       echo "<h4>".$sub_categories[$j]."</h4><br/>";
       display_items($sub_categories[$j]);
+      echo "<br/>";
     }
   }
 
@@ -81,13 +82,12 @@
     while($stmt->fetch())
     {
       ?>
-      <div class="col-md-4 col-lg-4">
+      <div class="col-md-4 col-lg-4 view-item">
       <div class="card">
         <div class="card-body">
-          <div class="flex-row">
             <img src=<?php echo $image_path; ?> alt="item" style="width:150px; height:110px;"/>
+            <br/>
             <label><?php echo $name; ?></label>
-          </div>
           <br />
           <div class="flex-row">
             <label>Price : <?php echo $price; ?></label>

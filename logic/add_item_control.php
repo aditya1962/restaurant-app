@@ -143,7 +143,6 @@ class AddItemControl
         $item_id = 1;
       }
        //add item to item_report table
-      $this->add_item_report($item_id);
 
       $category_id = $this->get_category_id($values[1]);  //get category id
       $date_added = date('Y-m-d H:i:s'); //get current date and time as added date
@@ -158,6 +157,10 @@ class AddItemControl
       $rating = 0;
       $available = 1;
       $number_of_orders = 0;
+      if($values[0]==="Main")
+      {
+        $values[0] = "Main Course";
+      }
       $stmt->bind_param("isssdsiisiii",$item_id,$values[0],$values[1],$values[2],$values[3],$values[4],
       $values[5], $rating,$date_added,$available,$number_of_orders,$category_id);
       //execute the query
@@ -171,6 +174,7 @@ class AddItemControl
         </div>
         <?php
       }
+      $this->add_item_report($item_id);
       $link->close();
   }
 }

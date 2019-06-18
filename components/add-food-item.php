@@ -101,6 +101,10 @@
         {
           $error = false;
           for ($i=0; $i < sizeof($values) ; $i++) {
+            if($i===3)
+            {
+              continue;
+            }
             if(empty($values[$i]) && $i!==2)
             {
               ?>
@@ -168,7 +172,6 @@
         <div class="input-div">
           <select name="sub_category" id="sub_category" class="form-control">
           </select>
-          <div id="suggestion"> </div>
         </div>
       </div>
       <div class="flex-row">

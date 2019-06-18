@@ -37,7 +37,7 @@ html,body
 .document-body
 {
   flex:80%;
-  margin:3% 0%;
+  margin:3% 2%;
 }
 .add-item .flex-row, .edit-item .flex-row
 {
@@ -149,4 +149,8 @@ html,body
   background-color:green;
   color:white;
   padding:2%;
+}
+.view-item
+{
+  margin:4% 0%;
 }

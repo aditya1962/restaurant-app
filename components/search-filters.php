@@ -72,9 +72,18 @@
         echo "<h5> No items matched found for Category - ".$category. " and Subcategory - ".$subcategory. "</h5>";
        }
        //return result set
+       $filename = basename($_SERVER['SCRIPT_FILENAME']);
        while($stmt->fetch())
        {
-         include("../components/edit-food-filtered.php");
+         if($filename==="add-to-cart.php")
+         {
+          include("../components/add-food-filtered.php");
+         } 
+         else
+         {
+          include("../components/edit-food-filtered.php");
+         }
+         
        }
        echo "<hr>";
        //close db connection

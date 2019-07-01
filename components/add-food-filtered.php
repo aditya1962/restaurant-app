@@ -1,15 +1,3 @@
-<?php
-  include_once("../logic/dbConnect.php");
-  $dbConnect = new DBConnect();
-  $link = $dbConnect->databaseConnect();
-  $query = "SELECT item_id,name,price,image_path,discount,rating FROM item";
-  $stmt = $link->prepare($query);
-  $stmt->execute();
-  $stmt->bind_result($item_id,$name,$price,$image_path,$discount,$rating);
-  while($stmt->fetch())
-  {
-?>
-
 <div class="card">
     <div class="card-body">
       <div class="flex-row item">
@@ -21,12 +9,12 @@
               <label style="display:block;">Price: <?php echo $price; ?></label>
               <div class="flex-row">
                 <a href="#edit-item">
-                  <button name=<?php echo "cart-".$item_id; ?> id=<?php echo "cart-".$item_id; ?> class="btn btn-default" onclick="getValues(this.id)">
+                  <button name="edit" id=<?php echo "product-".$item_id; ?> class="btn btn-default" onclick="getValues(this.id)">
                     <img src="#" alt="cart" />
                   </button>
                   <input type="hidden" name="edit-hidden" value=<?php echo $item_id; ?>>
                </a>
-                  <button name=<?php echo "save-".$item_id; ?> class="btn btn-default" id=<?php echo "save-".$item_id; ?> onclick="deleteItem(this.id)">
+                  <button name=<?php echo "product-".$item_id; ?> class="btn btn-default" id=<?php echo "delete-".$item_id; ?> onclick="deleteItem(this.id)">
                     <img src="#" alt="save" />
                   </button>
               </div>
@@ -48,18 +36,12 @@
           <div class="flex-row">
               <label>Quantity</label>
               <div class="flex-row" style="margin:0% 2%">
-                <button id = <?php echo "quantity-reduce-".$item_id; ?> class="btn btn-primary" onclick="reduce(this.id)">-</button>
-                <button id=<?php echo "quantity-".$item_id; ?> class="btn btn-primary quantity">0</button>
-                <button id=<?php echo "quantity-add-".$item_id; ?> class="btn btn-primary" onclick ="add(this.id)">+</button>
+                <button class="btn btn-primary quantity">-</button>
+                <button class="btn btn-primary quantity">0</button>
+                <button class="btn btn-primary quantity">+</button>
               </div>
           </div>
         </div>
       </div>
     </div>
 </div>
-
-<?php
-  }
-  $link->close();
-?>
-<script type="text/javascript" src="../js/quantity.js"></script>

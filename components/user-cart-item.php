@@ -20,13 +20,10 @@
               <label style="display:block;"><?php echo $name; ?></label>
               <label style="display:block;">Price: <?php echo $price; ?></label>
               <div class="flex-row">
-                <a href="#edit-item">
-                  <button name=<?php echo "cart-".$item_id; ?> id=<?php echo "cart-".$item_id; ?> class="btn btn-default" onclick="getValues(this.id)">
+                  <button name=<?php echo "cart-".$item_id; ?> id=<?php echo "cart-".$item_id; ?> class="btn btn-primary" onclick="addToCart(this.id)">
                     <img src="#" alt="cart" />
                   </button>
-                  <input type="hidden" name="edit-hidden" value=<?php echo $item_id; ?>>
-               </a>
-                  <button name=<?php echo "save-".$item_id; ?> class="btn btn-default" id=<?php echo "save-".$item_id; ?> onclick="deleteItem(this.id)">
+                  <button name=<?php echo "save-".$item_id; ?> class="btn btn-primary" id=<?php echo "save-".$item_id; ?> onclick="save(this.id)">
                     <img src="#" alt="save" />
                   </button>
               </div>

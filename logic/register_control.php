@@ -87,7 +87,7 @@ class RegisterControl
     //exexcute the statement
     $stmt_user->execute();
     $register_success = false;
-    if($stmt->affected_rows>0)
+    if($stmt_user->affected_rows>0)
     {
       $register_success = true;
     }

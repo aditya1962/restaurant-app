@@ -23,5 +23,6 @@
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
     <script type="text/javascript" src="../js/categories.js"> </script>
+    <script type="text/javascript" src="../js/add-to-cart.js"> </script>
   </body>
 </html>

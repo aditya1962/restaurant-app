@@ -6,7 +6,7 @@ $_SESSION["username"] = "";
 $dbConnect = new DBConnect();
 $link = $dbConnect->databaseConnect();
 $query = "SELECT saved_item.item_id, item.image_path,item.name,item.price FROM `saved_item`
- INNER JOIN `item` ON `saved_item`.`item_id`= `item`.`item_id` WHERE username=?";
+ INNER JOIN `item` ON `saved_item`.`item_id`= `item`.`item_id` WHERE saved_item.username=?";
 $stmt = $link->prepare($query);
 $username = $_SESSION["username"];
 $stmt->bind_param("s",$username);

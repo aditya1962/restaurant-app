@@ -40,7 +40,7 @@ while($stmt->fetch())
       <div class="control-elements cart-item-right">
           <button class="btn btn-primary" name="checkout">Checkout</button>
         <div class="flex-row">
-          <button id=<?php echo "item-".$item_id; ?> class="btn btn-default" name="delete"><img src="#" alt="delete" /></button>
+          <button id=<?php echo "item-".$item_id; ?> class="btn btn-default" name="delete" onclick=delete_item(this.id)><img src="#" alt="delete" /></button>
         </div>
       </div>
     </div>

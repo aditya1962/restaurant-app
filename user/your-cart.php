@@ -21,5 +21,7 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
+    <script type="text/javascript" src="../js/quantity.js"></script>
+    <script type="text/javascript" src="../js/delete_item.js"></script>
   </body>
 </html>

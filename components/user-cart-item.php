@@ -10,7 +10,7 @@
   {
 ?>
 
-<div class="card">
+<div id=<?php echo "component-".$item_id; ?> class="card">
     <div class="card-body">
       <div class="flex-row item">
           <div class="col-md-2 col-lg-2">
@@ -59,4 +59,3 @@
   }
   $link->close();
 ?>
-<script type="text/javascript" src="../js/quantity.js"></script>

@@ -6,7 +6,7 @@
           </div>
           <div class="col-md-7 col-lg-7" style="padding:0% 0% 0% 8%;">
               <label style="display:block;"><?php echo $name; ?></label>
-              <label style="display:block;">Price: <?php echo $price; ?></label>
+              <label style="display:block;">Price: $ <?php echo $price; ?></label>
               <div class="flex-row">
                 <a href="#edit-item">
                   <button name="edit" id=<?php echo "product-".$item_id; ?> class="btn btn-default" onclick="getValues(this.id)">

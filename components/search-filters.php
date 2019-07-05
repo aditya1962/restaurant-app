@@ -1,3 +1,6 @@
+<?php
+  $filtered = false;
+?>
 <form method="get" action=<?php echo basename($_SERVER['SCRIPT_FILENAME'])?>>
   <div class="flex-row">
     <!--Search Filter -->
@@ -31,6 +34,7 @@
 <?php
   if(isset($_GET["search"]))
   {
+    $filtered = true;
     $search = $_GET["search"];
     $category = $_GET["category"];
     $subcategory = $_GET["subcategory"];
@@ -57,8 +61,8 @@
        //bind results
        $stmt->bind_result($item_id,$name,$price,$image_path,$discount,$rating);
        $stmt->store_result();
-       if($stmt->fetch())
-       {
+       if($stmt->affected_rows>0)
+       {      
         echo "<h5> Your search : ";
         if(!empty($search))
         {
@@ -73,21 +77,25 @@
        }
        //return result set
        $filename = basename($_SERVER['SCRIPT_FILENAME']);
+
        while($stmt->fetch())
        {
          if($filename==="add-to-cart.php")
          {
           include("../components/add-food-filtered.php");
          } 
+         else if ($filename==="order-food.php") {
+           include("../components/order-food-filtered.php");
+         }
          else
          {
           include("../components/edit-food-filtered.php");
          }
          
        }
-       echo "<hr>";
        //close db connection
        $link->close();
        
   }
 ?>
+    <script type="text/javascript" src="../js/categories.js"> </script>

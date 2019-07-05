@@ -27,7 +27,7 @@ while($stmt->fetch())
       <br />
       <label><?php $name; ?></label>
       <br />
-      <label><?php $price; ?></label>
+      <label>$ <?php $price; ?></label>
       <br />
       <div class="remove-saved-item">
         <button id=<?php echo "item-".$item_id; ?> name="remove-item" class="btn btn-primary" onclick = "remove_saved(this.id)">Remove Item</button>

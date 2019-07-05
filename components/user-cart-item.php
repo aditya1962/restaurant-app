@@ -13,12 +13,12 @@
 <div id=<?php echo "component-".$item_id; ?> class="card">
     <div class="card-body">
       <div class="flex-row item">
-          <div class="col-md-2 col-lg-2">
+          <div class="col-md-3 col-lg-3">
             <img src=<?php echo str_replace('\\', '/', $image_path); ?> alt="item" style="width:200px; height:150px;" />
           </div>
-          <div class="col-md-7 col-lg-7" style="padding:0% 0% 0% 8%;">
+          <div class="col-md-6 col-lg-6" style="padding:0% 0% 0% 8%;">
               <label style="display:block;"><?php echo $name; ?></label>
-              <label style="display:block;">Price: <?php echo $price; ?></label>
+              <label style="display:block;">Price: $ <?php echo $price; ?></label>
               <div class="flex-row">
                   <button name=<?php echo "cart-".$item_id; ?> id=<?php echo "cart-".$item_id; ?> class="btn btn-primary" onclick="addToCart(this.id)">
                     <img src="#" alt="cart" />

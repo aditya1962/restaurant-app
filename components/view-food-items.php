@@ -90,7 +90,7 @@
             <label><?php echo $name; ?></label>
           <br />
           <div class="flex-row">
-            <label>Price : <?php echo $price; ?></label>
+            <label>Price : $ <?php echo $price; ?></label>
             <br />
             <?php
               if($discount!==0)

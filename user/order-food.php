@@ -20,7 +20,7 @@
         <?php include_once("../components/order-food.php"); ?>
         <br /><br />
         <!-- Section to display the orders the user has selected -->
-        <h3> Orders </h3>
+        <h3 id="view-orders"> Orders </h3>
         <br />
         <p>Here are the list of items that you ordered</p>
         <br />
@@ -33,5 +33,7 @@
     </div>
     <!--Footer,import from includes/user-footer-template.php -->
     <?php include_once("../includes/user-footer-template.php"); ?>
+    <script type="text/javascript" src="../js/quantity.js"></script>
+    <script type="text/javascript" src="../js/add_to_orders.js"></script>
   </body>
 </html>

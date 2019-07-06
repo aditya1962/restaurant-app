@@ -30,12 +30,17 @@ $_SESSION["quantity"] = [];
         <br />
         <p>Here are the list of items that you ordered</p>
         <br />
-         <table class="table table-striped table-orders" id="order-table">
+        <form method="post" action="submit-order.php">
+        <div class="table-orders">
+         <table class="table table-striped" id="order-table">
           <tr><td>You have not placed any orders</td></tr>
          </table>
+         <div style="text-align:right;">
+          <button class="btn btn-primary" id="submit-orders" style="visibility:hidden;">Submit orders </button>
+         </div>
+        </div>
+      </form>
         <br /><br />
-        <!--Section to submit orders -->
-        <?php include_once("../components/submit-order.php"); ?>
       </div>
 
     </div>

@@ -26,6 +26,7 @@ function add_order(id)
               if (xhr.status == 200) {
                 document.getElementById("order-table").innerHTML ="";
             	 document.getElementById("order-table").innerHTML = xhr.responseText;
+               document.getElementById("submit-orders").style.visibility="visible";
               } else {
                 alert('There was a problem with the request.');
               }

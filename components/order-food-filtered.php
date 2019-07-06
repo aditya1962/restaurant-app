@@ -15,7 +15,7 @@
   <div class="col-md-3 col-lg-3">
     <div class="flex-row">
       <label>Rating</label>
-      <?php include_once("rating.php");?>
+      <?php include("rating.php");?>
     </div>
     <div class="flex-row">
       <label>Quantity</label>

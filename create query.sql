@@ -101,8 +101,25 @@ ALTER TABLE feedback AUTO_INCREMENT=1;
 
 CREATE TABLE order_item
 (
-	username VARCHAR(20) NOT NULL,
+    username VARCHAR(20) NOT NULL,
     item_id INT NOT NULL,
+    quantity INT NOT NULL,
+    order_number INT,
+    PRIMARY KEY (username,item_id),
+    UNIQUE KEY (order_number),
+    FOREIGN KEY order_item_user(username)
+        REFERENCES user(username)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY order_item_item(item_id)
+        REFERENCES item(item_id)
+        ON UPDATE CASCADE
+);
+
+ALTER TABLE order_item AUTO_INCREMENT=1;
+
+CREATE TABLE order_details
+(
+    order_number INT AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     address VARCHAR(100) NOT NULL,
     email VARCHAR(20) NOT NULL,
@@ -110,16 +127,12 @@ CREATE TABLE order_item
     delivery_time DATETIME NOT NULL,
     payment decimal(7,2) NOT NULL,
     remarks VARCHAR(200) NULL,
-    submitted_time DATETIME NOT NULL,
-    order_number INT AUTO_INCREMENT,
-    PRIMARY KEY (username,item_id),
+    submitted_time DATETIME NOT NULL,    
+    PRIMARY KEY (order_number),
     UNIQUE KEY (order_number),
-    FOREIGN KEY order_item_user(username)
-		REFERENCES user(username)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-	FOREIGN KEY order_item_item(item_id)
-		REFERENCES item(item_id)
-        ON UPDATE CASCADE
+    FOREIGN KEY order_details_order_item(order_number)
+        REFERENCES order_item(order_number)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 ALTER TABLE order_item AUTO_INCREMENT=1;

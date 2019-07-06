@@ -5,7 +5,7 @@
     <img src=<?php echo str_replace('\\', '/', $image_path); ?> alt="item" style="width:200px; height:150px;"/>
   </div>
   <div class="col-md-6 col-lg-6">
-      <label style="display:block;"><?php echo $name; ?></label>
+      <label style="display:block;" id=<?php echo "name-".$item_id;?>><?php echo $name; ?></label>
       <label style="display:block;">$ <?php echo $price; ?></label>
       <div class="flex-row">
         <button name="add-to-orders" class="btn btn-primary" id=<?php echo "item-".$item_id; ?> onclick="add_order(this.id)"> Add to Orders </button>

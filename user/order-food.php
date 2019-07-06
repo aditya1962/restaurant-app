@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION["id"] = [];
+$_SESSION["names"] = [];
+$_SESSION["quantity"] = [];
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,7 +30,9 @@
         <br />
         <p>Here are the list of items that you ordered</p>
         <br />
-        <?php include_once("../components/orders.php"); ?>
+         <table class="table table-striped table-orders" id="order-table">
+          <tr><td>You have not placed any orders</td></tr>
+         </table>
         <br /><br />
         <!--Section to submit orders -->
         <?php include_once("../components/submit-order.php"); ?>
@@ -35,5 +43,12 @@
     <?php include_once("../includes/user-footer-template.php"); ?>
     <script type="text/javascript" src="../js/quantity.js"></script>
     <script type="text/javascript" src="../js/add_to_orders.js"></script>
+    <script type="text/javascript">
+        function remove(id)
+        {
+          var item_id = id.split('-')[1];
+          document.getElementById("ordered-item-"+item_id).remove();
+        }
+    </script>
   </body>
 </html>

@@ -1,8 +1,5 @@
 <?php
   session_start();
-  var_dump($_SESSION);
-   $time = date("H");
-   var_dump($time);
   if(isset($_POST["submit-order"]))
   {
     $name = $_POST["name"];
